@@ -28,6 +28,7 @@ case "$LANG_CODE" in
     DOCS=(
       docs/the-why.md
       docs/euroboxes.md
+      docs/cost-of-ownership.md
       docs/picking-and-sorting-bins.md
       docs/moving-equipment.md
       docs/pallets-elevators-biomechanics.md

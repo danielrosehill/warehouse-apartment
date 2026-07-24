@@ -1,2 +1,7 @@
 opencv-python>=4.8
 numpy>=1.24
+Pillow>=10.0
+pyzbar>=0.1.9
+# pyzbar needs the system zbar shared library:
+#   Debian/Ubuntu:  sudo apt install libzbar0
+#   macOS (brew):   brew install zbar

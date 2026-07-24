@@ -1,33 +1,42 @@
 #!/usr/bin/env python3
 """
-redact_qr.py — batch-redact QR codes from photos.
+redact_qr.py — batch-redact QR / barcodes from photos.
 
-Detects QR codes in every image in an input folder and paints a SOLID opaque box
-over each one (not a blur — blur can be reversed, and QR error correction recovers
-partly-obscured codes). Re-encodes output, which also strips EXIF metadata (e.g. GPS).
+Finds codes in every image in an input folder and covers each one, so photos of
+the storage system can be shared without leaking the inventory QR codes (which
+resolve to a private host). Also auto-orients (EXIF) and strips metadata (incl. GPS).
 
-Why solid fill: QR codes use Reed-Solomon error correction (up to ~30% recoverable
-at the highest level), so small/blurry/partly-hidden codes can still decode. Cover
-the whole code.
+Detection takes the UNION of up to three detectors (each misses different codes):
+  * pyzbar (zbar)          — robust on angled / cluttered codes
+  * OpenCV QRCodeDetector  — a second classical pass
+  * WeChat QRCode (CNN+SR) — best on SMALL / blurry codes; needs opencv-contrib +
+                             model files in tools/models/wechat/ (see download_models.sh)
+
+Redaction modes:
+  * fill  (default) — solid opaque box. Safest: QR error-correction (~30%) means
+                      partial codes still decode, and blur can sometimes be reversed.
+  * blur            — hard pixelation + heavy Gaussian with FEATHERED edges, so it's a
+                      soft smudge rather than an ugly box. Strong enough to destroy the
+                      code, but slightly less bulletproof than fill.
 
 Usage:
     python redact_qr.py INPUT_DIR OUTPUT_DIR [options]
 
 Options:
-    --pad N         Extra pixels around each detected code (default: 12)
-    --color R,G,B   Fill colour (default: 0,0,0 = black)
-    --recursive     Recurse into subfolders
-    --detect-only   Report detections without writing files
-    --exts .jpg,... Comma-separated extensions to process
-                    (default: .jpg,.jpeg,.png,.webp,.bmp,.tif,.tiff)
+    --mode fill|blur   Redaction style (default: fill)
+    --to same|webp     Output format (default: webp)
+    --quality N        WebP quality 1-100 (default: 82)
+    --pad N            Min padding px around each code (default: 10; also 15% of code size)
+    --color R,G,B      Fill colour for --mode fill (default: 0,0,0)
+    --recursive        Recurse into subfolders (structure preserved)
+    --detect-only      Report detections, write nothing
+    --exts .jpg,...    Extensions to process (default: common raster formats)
 
-Requires: opencv-python, numpy  (pip install -r requirements.txt)
+Requires: pyzbar, opencv-contrib-python, Pillow, numpy  (pip install -r requirements.txt)
+System lib: libzbar0  (Debian/Ubuntu: sudo apt install libzbar0)
 
-LIMITATIONS — read this:
-  Automatic detection is good but not perfect. Very small, low-contrast, heavily
-  angled, or motion-blurred codes can be missed. This tool prints a WARNING for any
-  image where it found nothing. ALWAYS eyeball the output folder before publishing,
-  and redact any missed codes by hand.
+⚠️  Detection is good, not perfect. The tool prints a WARNING for any image where it
+    found nothing — eyeball those before publishing, or run a cloud detector (see README).
 """
 import argparse
 import sys
@@ -39,61 +48,120 @@ try:
     import cv2
 except ImportError:
     sys.exit("OpenCV not installed. Run: pip install -r requirements.txt")
+try:
+    from PIL import Image, ImageOps
+except ImportError:
+    sys.exit("Pillow not installed. Run: pip install -r requirements.txt")
+
+try:
+    from pyzbar import pyzbar
+    HAVE_ZBAR = True
+except Exception:
+    HAVE_ZBAR = False
 
 DEFAULT_EXTS = ".jpg,.jpeg,.png,.webp,.bmp,.tif,.tiff"
+MODELS = Path(__file__).parent / "models" / "wechat"
 
 
-def imread_unicode(path: Path):
-    """cv2.imread that tolerates non-ASCII paths."""
-    data = np.fromfile(str(path), dtype=np.uint8)
-    if data.size == 0:
+def load_wechat():
+    """Optional CNN+super-resolution detector. Returns a detector or None."""
+    files = [MODELS / f for f in
+             ("detect.prototxt", "detect.caffemodel", "sr.prototxt", "sr.caffemodel")]
+    if not all(f.exists() for f in files) or not hasattr(cv2, "wechat_qrcode_WeChatQRCode"):
         return None
-    return cv2.imdecode(data, cv2.IMREAD_COLOR)
-
-
-def imwrite_unicode(path: Path, img) -> bool:
-    ok, buf = cv2.imencode(path.suffix, img)
-    if not ok:
-        return False
-    buf.tofile(str(path))
-    return True
-
-
-def detect_qr_polygons(img):
-    """Return a list of (4,2) int polygons for every QR code found."""
-    detector = cv2.QRCodeDetector()
-    polygons = []
-    # detectAndDecodeMulti finds multiple codes in one pass.
     try:
-        ok, _decoded, points, _straight = detector.detectAndDecodeMulti(img)
-        if ok and points is not None:
-            for quad in points:
-                polygons.append(np.asarray(quad).reshape(-1, 2))
-    except cv2.error:
-        pass
-    # Fall back to single-code detect for anything the multi pass missed.
-    if not polygons:
+        return cv2.wechat_qrcode_WeChatQRCode(*[str(f) for f in files])
+    except Exception:
+        return None
+
+
+def load_oriented_rgb(path: Path):
+    img = Image.open(path)
+    img = ImageOps.exif_transpose(img)  # honour phone rotation
+    img = img.convert("RGB")
+    return img, np.asarray(img)
+
+
+def detect_polys(rgb: np.ndarray, wechat=None):
+    """Return a list of (N,2) float polygons for every code found (union of detectors)."""
+    polys = []
+    if HAVE_ZBAR:
         try:
-            ok, points = detector.detect(img)
-            if ok and points is not None:
-                for quad in points:
-                    polygons.append(np.asarray(quad).reshape(-1, 2))
+            for sym in pyzbar.decode(rgb):
+                if sym.polygon:
+                    polys.append(np.array([(p.x, p.y) for p in sym.polygon], dtype=float))
+                else:
+                    r = sym.rect
+                    polys.append(np.array(
+                        [(r.left, r.top), (r.left + r.width, r.top),
+                         (r.left + r.width, r.top + r.height), (r.left, r.top + r.height)],
+                        dtype=float))
+        except Exception:
+            pass
+    bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+    det = cv2.QRCodeDetector()
+    for fn in ("multi", "single"):
+        try:
+            if fn == "multi":
+                ok, _s, pts, _ = det.detectAndDecodeMulti(bgr)
+            else:
+                ok, pts = det.detect(bgr)
+            if ok and pts is not None:
+                for quad in pts:
+                    polys.append(np.asarray(quad).reshape(-1, 2).astype(float))
         except cv2.error:
             pass
-    return polygons
+    if wechat is not None:
+        try:
+            _res, points = wechat.detectAndDecode(bgr)
+            for quad in (points or []):
+                polys.append(np.asarray(quad).reshape(-1, 2).astype(float))
+        except Exception:
+            pass
+    return polys
 
 
-def redact(img, polygons, pad, color):
-    """Paint a solid, padded, axis-aligned box over each polygon."""
-    h, w = img.shape[:2]
-    for poly in polygons:
-        xs, ys = poly[:, 0], poly[:, 1]
-        x0 = max(0, int(xs.min()) - pad)
-        y0 = max(0, int(ys.min()) - pad)
-        x1 = min(w, int(xs.max()) + pad)
-        y1 = min(h, int(ys.max()) + pad)
-        cv2.rectangle(img, (x0, y0), (x1, y1), color, thickness=cv2.FILLED)
-    return img
+def padded_bbox(poly, pad_px, h, w):
+    xs, ys = poly[:, 0], poly[:, 1]
+    size = max(xs.max() - xs.min(), ys.max() - ys.min())
+    pad = max(pad_px, 0.15 * size)
+    x0 = max(0, int(xs.min() - pad)); y0 = max(0, int(ys.min() - pad))
+    x1 = min(w, int(xs.max() + pad)); y1 = min(h, int(ys.max() + pad))
+    return x0, y0, x1, y1
+
+
+def _odd(n):
+    n = int(n)
+    return n + 1 if n % 2 == 0 else n
+
+
+def redact(rgb: np.ndarray, polys, mode, pad_px, color):
+    h, w = rgb.shape[:2]
+    out = rgb.copy()
+    for poly in polys:
+        x0, y0, x1, y1 = padded_bbox(poly, pad_px, h, w)
+        rw, rh = x1 - x0, y1 - y0
+        if rw <= 1 or rh <= 1:
+            continue
+        if mode == "blur":
+            region = out[y0:y1, x0:x1].astype(np.uint8)
+            # 1) hard pixelation destroys the QR modules irreversibly
+            sw, sh = max(1, rw // 12), max(1, rh // 12)
+            pix = cv2.resize(cv2.resize(region, (sw, sh), interpolation=cv2.INTER_LINEAR),
+                             (rw, rh), interpolation=cv2.INTER_NEAREST)
+            # 2) heavy Gaussian smooths the pixels into a soft smudge
+            k = _odd(max(31, max(rw, rh) // 2))
+            smudge = cv2.GaussianBlur(pix, (k, k), 0)
+            # 3) feathered mask -> no hard rectangle edge
+            feather = _odd(max(11, max(rw, rh) // 5))
+            inset = feather
+            mask = np.zeros((rh, rw), np.float32)
+            cv2.rectangle(mask, (inset, inset), (rw - inset, rh - inset), 1.0, -1)
+            mask = cv2.GaussianBlur(mask, (feather, feather), 0)[..., None]
+            out[y0:y1, x0:x1] = (smudge * mask + region * (1 - mask)).astype(np.uint8)
+        else:  # fill
+            out[y0:y1, x0:x1] = color
+    return out
 
 
 def iter_images(root: Path, exts, recursive: bool):
@@ -106,16 +174,19 @@ def iter_images(root: Path, exts, recursive: bool):
 def parse_color(s: str):
     try:
         r, g, b = (int(v) for v in s.split(","))
-        return (b, g, r)  # OpenCV is BGR
+        return (r, g, b)
     except Exception:
         raise argparse.ArgumentTypeError("--color must be R,G,B e.g. 0,0,0")
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Batch-redact QR codes from photos.")
+    ap = argparse.ArgumentParser(description="Batch-redact QR/barcodes from photos.")
     ap.add_argument("input_dir", type=Path)
     ap.add_argument("output_dir", type=Path)
-    ap.add_argument("--pad", type=int, default=12)
+    ap.add_argument("--mode", choices=["fill", "blur"], default="fill")
+    ap.add_argument("--to", choices=["same", "webp"], default="webp")
+    ap.add_argument("--quality", type=int, default=82)
+    ap.add_argument("--pad", type=int, default=10)
     ap.add_argument("--color", type=parse_color, default=(0, 0, 0))
     ap.add_argument("--recursive", action="store_true")
     ap.add_argument("--detect-only", action="store_true")
@@ -124,47 +195,53 @@ def main():
 
     if not args.input_dir.is_dir():
         sys.exit(f"Input dir not found: {args.input_dir}")
+    wechat = load_wechat()
+    detectors = (["zbar"] if HAVE_ZBAR else []) + ["opencv"] + (["wechat"] if wechat else [])
+    print(f"detectors: {' + '.join(detectors)}\n")
     exts = {e if e.startswith(".") else "." + e
             for e in (x.strip().lower() for x in args.exts.split(",")) if e}
-
     if not args.detect_only:
         args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    total = redacted = codes = misses = 0
+    total = written = codes = misses = 0
     for src in iter_images(args.input_dir, exts, args.recursive):
         total += 1
-        img = imread_unicode(src)
-        if img is None:
-            print(f"  ! skip (unreadable): {src.name}")
+        try:
+            _pil, rgb = load_oriented_rgb(src)
+        except Exception as e:
+            print(f"  ! skip (unreadable): {src.name} ({e})")
             continue
-        polys = detect_qr_polygons(img)
+        polys = detect_polys(rgb, wechat)
         if polys:
             codes += len(polys)
-            print(f"  ✓ {src.name}: {len(polys)} QR code(s)")
+            print(f"  ✓ {src.name}: {len(polys)} code region(s)")
         else:
             misses += 1
-            print(f"  ! {src.name}: NO QR detected — check this one by hand")
+            print(f"  ! {src.name}: NO code detected — check by hand")
 
         if args.detect_only:
             continue
 
-        out = redact(img, polys, args.pad, args.color) if polys else img
+        out_rgb = redact(rgb, polys, args.mode, args.pad, args.color) if polys else rgb
         rel = src.relative_to(args.input_dir)
+        if args.to == "webp":
+            rel = rel.with_suffix(".webp")
         dst = args.output_dir / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
-        if imwrite_unicode(dst, out):
-            redacted += 1
+        out_img = Image.fromarray(out_rgb)  # no exif -> metadata stripped
+        if args.to == "webp":
+            out_img.save(dst, "WEBP", quality=args.quality, method=6)
         else:
-            print(f"  ! failed to write: {dst}")
+            out_img.save(dst)
+        written += 1
 
     print("\n--- summary ---")
+    print(f"detectors      : {' + '.join(detectors)}")
     print(f"images scanned : {total}")
-    print(f"QR codes found : {codes}")
+    print(f"code regions   : {codes}")
     if not args.detect_only:
-        print(f"files written  : {redacted}  (EXIF stripped on re-encode)")
-    print(f"no-detection   : {misses}  <- review these manually")
-    if misses:
-        print("\nReminder: eyeball the output before publishing. Detection is not perfect.")
+        print(f"files written  : {written}  (mode={args.mode}, format={args.to}, EXIF stripped)")
+    print(f"no-detection   : {misses}  <- review these by hand (or run a cloud detector)")
 
 
 if __name__ == "__main__":

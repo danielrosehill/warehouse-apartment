@@ -45,28 +45,38 @@ one go**, before rent on the new place even starts:
 | Cost | Typical magnitude | Notes |
 |------|-------------------|-------|
 | **Security / deposit** | up to **~3 months' rent** | §25י caps cash-type security at the *lower of* 3 months' rent **or** ⅓ of total lease value — which, on a standard 12-month lease, works out to **3 months**. A ceiling, not a small number. Often via bank guarantee / deposit cheque / guarantors. |
-| **Agent / broker fee** | **1 month's rent + VAT (18%)** | Legally murky — see below. In practice, routinely paid by the tenant. |
+| **Agent / broker fee** | **1 month's rent + VAT (18%)** | On an 8,000 ₪/month flat that's **8,000 + 18% = 9,440 ₪** (≈ US$2,500), commonly **with no receipt.** Legally it's the *landlord's* cost — see below — yet the tenant pays it. |
 | **Moving cost** | e.g. **~10,000 ₪** (our prior move) | Movers, or DIY gear + labour. |
 | **Lost income** | variable | If you're **self-employed** (we are), days spent packing/moving/setting up are unpaid. |
 
-### 3. The broker fee: "banned," but not really
-This is the sharpest example of the reform failing in practice:
+### 3. The broker fee: "banned," but paid anyway
+This is the sharpest example of the reform failing in practice, and it's worth being
+precise about, because it's routinely misdescribed.
 
-- The 2017 law (**§25ט(ב)(3)**) says a tenant does **not** bear a broker fee **if the
-  broker acted on the landlord's behalf** (מטעם המשכיר). On paper, that shifts the fee
-  to the landlord.
-- **The loophole:** courts have held that the rental law governs only the
-  *tenant–landlord* relationship, not *broker–tenant* (e.g. appeal 55235-08-19, 2019).
-  So brokers simply have the **tenant sign the brokerage agreement** — making the tenant
-  "the client" — and the fee is lawful again. Given landlords' market power, this is the
-  norm, and tenants keep paying.
+**We have never once hired a rental agent.** In Israel, in practice, essentially every
+apartment reaches the market through an agent **the landlord engaged** — and the
+**tenant is made to pay that agent's fee.** Every agent fee we have ever paid was for
+an agent working for the landlord, whom we never chose and never instructed.
+
+Set against the law, that shouldn't happen:
+
+- The 2017 law (**§25ט(ב)(3)**) says a tenant does **not** bear a broker fee **when the
+  broker acted on the landlord's behalf** (מטעם המשכיר). Our exact situation, every
+  time.
+- **The workaround:** courts read the rental law as governing only the *tenant–landlord*
+  relationship, not *broker–tenant* (e.g. appeal 55235-08-19, 2019). So the practice
+  was to have the **tenant sign paperwork pretending they had engaged the agent** —
+  manufacturing a broker–tenant contract that makes the charge lawful. In recent years
+  even that fig leaf is often dropped; the fee is simply demanded.
 - New **Real Estate Brokers Regulations (Ethics & Professional Duties), 2024** — part of
   the Ministry of Justice brokerage reform, **in force 9 March 2025** — reinforce the
-  ban (and add disciplinary liability) *when the landlord is the client*. But the
-  tenant-signs loophole remains, so the practical outcome is largely unchanged.
+  ban (with disciplinary liability) when the landlord is the client. On the ground, the
+  fee is still charged to tenants.
 
-**Net:** the fee is *supposed* to fall on whoever hired the broker; the market ensures
-that's almost always framed as the tenant.
+**Net:** the statute puts the fee on whoever hired the broker (the landlord); the market
+puts it on the tenant anyway — often as an untaxed, unreceipted payment of ~1 month's
+rent + VAT. A protection that exists on paper and evaporates in practice is the whole
+case for calling the reform a failure.
 
 ### 4. Comparison: jurisdictions that designed the costs out
 The point isn't that moving is hard everywhere — it's that some places removed these

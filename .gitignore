@@ -2,6 +2,13 @@
 photos/raw/
 photos/**/raw/
 
+# Auto-redacted photos held back until reviewed/approved for a public repo.
+# Remove this line to allow committing them.
+photos/redacted/
+
+# WeChat QR model files (download via tools/download_models.sh)
+tools/models/
+
 # Python
 .venv/
 __pycache__/

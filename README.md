@@ -22,6 +22,7 @@ never realized this entire ecosystem was available to individuals.
 |-----|--------|
 | [The Why](docs/the-why.md) | Israel's tenancy/rental-law mechanics, the real cost of a move, jurisdiction comparison |
 | [Euroboxes](docs/euroboxes.md) | The three sizes, the standard, why they replace cardboard |
+| [Cost of Ownership](docs/cost-of-ownership.md) | IKEA SAMLA vs. industrial: real prices, amortized TCO, durability & UV |
 | [Picking & Sorting Bins](docs/picking-and-sorting-bins.md) | Fast-access containers for the unboxing phase |
 | [Moving Equipment](docs/moving-equipment.md) | Dollies, ratchet straps, improvised rolling cart |
 | [Pallets, Elevators & Biomechanics](docs/pallets-elevators-biomechanics.md) | Why palletizing is non-linear; why elevator depth dominates a move |
