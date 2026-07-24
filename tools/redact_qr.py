@@ -124,7 +124,7 @@ def detect_polys(rgb: np.ndarray, wechat=None):
 def padded_bbox(poly, pad_px, h, w):
     xs, ys = poly[:, 0], poly[:, 1]
     size = max(xs.max() - xs.min(), ys.max() - ys.min())
-    pad = max(pad_px, 0.15 * size)
+    pad = max(pad_px, 0.35 * size)  # generous halo so the redaction isn't tightly bounded
     x0 = max(0, int(xs.min() - pad)); y0 = max(0, int(ys.min() - pad))
     x1 = min(w, int(xs.max() + pad)); y1 = min(h, int(ys.max() + pad))
     return x0, y0, x1, y1
@@ -186,7 +186,7 @@ def main():
     ap.add_argument("--mode", choices=["fill", "blur"], default="fill")
     ap.add_argument("--to", choices=["same", "webp"], default="webp")
     ap.add_argument("--quality", type=int, default=82)
-    ap.add_argument("--pad", type=int, default=10)
+    ap.add_argument("--pad", type=int, default=24)
     ap.add_argument("--color", type=parse_color, default=(0, 0, 0))
     ap.add_argument("--recursive", action="store_true")
     ap.add_argument("--detect-only", action="store_true")
