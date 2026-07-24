@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 🏭 The Warehouse Apartment
 
 A field manual for a home storage-and-moving system built on **industrial logistics
@@ -13,6 +17,8 @@ same standardized units industry already uses to move things at scale.
 The name is a running joke — visitors ask whether it's a warehouse or an apartment —
 but the contents are meant as a straightforward reference for anyone who, like me,
 never realized this entire ecosystem was available to individuals.
+
+![Interlocked Euroboxes stacked in an apartment hallway](docs/figures/euro-crate-stack-hallway.jpg)
 
 ---
 
@@ -55,15 +61,36 @@ standards is the point — details in [Interoperability](docs/interoperability.m
 
 A typeset, printable edition is generated from the markdown via
 [Typst](https://typst.app/): **[`pdf/warehouse-apartment.en.pdf`](pdf/warehouse-apartment.en.pdf)**
-(rebuild with `pdf/build.sh`). This is where the photos will be embedded once redacted.
+(rebuild with `pdf/build.sh`). Photos of the system are embedded throughout.
+
+## Photos
+
+Photos of the real system — sourcing, the storage wall, picking bins, moving
+equipment, and moving day — live in [`photos/`](photos/), organized by theme and
+redacted (inventory QR codes removed, metadata/GPS stripped):
+
+| Folder | What's in it |
+|--------|--------------|
+| [`photos/sourcing/`](photos/sourcing/) | The supplier yard; pallet deliveries |
+| [`photos/storage-system/`](photos/storage-system/) | The storage wall, labelled Euroboxes, shelving, consumables |
+| [`photos/picking-bins/`](photos/picking-bins/) | Open-front picking bins and wall hardware bins |
+| [`photos/moving-equipment/`](photos/moving-equipment/) | Hand trucks, dollies, carts, labelling tools |
+| [`photos/moving-day/`](photos/moving-day/) | Palletized/strapped loads, car loads, the lift |
+| [`photos/extras/`](photos/extras/) | Odds and ends |
+
+<p>
+  <img src="docs/figures/supplier-yard.jpg" width="32%" alt="Supplier yard stacked with Euro crates">
+  <img src="docs/figures/euro-totes-labeled.jpg" width="32%" alt="Labelled Euroboxes, top-down">
+  <img src="docs/figures/crate-on-pallet.jpg" width="32%" alt="A Eurobox column strapped to a pallet">
+</p>
 
 ## Status
 
 - ✅ **Docs** — written, expanding.
 - ✅ **PDF** — English edition builds from the markdown (`pdf/`).
-- 📷 **Photos** — coming. Before/after move shots need their inventory QR codes
-  redacted first (they resolve to a private host). Batch tool in
-  [`tools/`](tools/); workflow in [`photos/`](photos/).
+- ✅ **Photos** — a redacted, metadata-stripped set is in [`photos/`](photos/)
+  (organized by theme) and embedded through the docs and PDF. Batch redaction tool
+  in [`tools/`](tools/).
 - 🎥 **Video** — in progress; releases once the finished system is in place.
 - 🌐 **Hebrew** — a Hebrew edition (`pdf/warehouse-apartment.he.pdf`) is planned.
 

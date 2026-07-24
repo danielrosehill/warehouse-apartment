@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Sourcing
 
 The hardest part of the whole system. Not the stacking or the moving — **buying the
@@ -28,6 +32,10 @@ containers, pallets, platforms, bins, carts; sale and rental; nationwide deliver
 What mattered: a large B2B outfit that **gave a walk-in the time of day** — explained
 how the system works and walked through every model. If you're in Israel and want
 into this, start there.
+
+![Stacks of industrial crates in a supplier yard](figures/supplier-yard.jpg)
+
+*The B2B world these come from — a supplier yard stacked pallet-high with Euro crates.*
 
 - Web: <http://yosibox.com/> · Phone: 03-9153158 · Email: office@yosibox.com
 

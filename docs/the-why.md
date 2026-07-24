@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # The Why
 
 This system wasn't a hobby. It's a response to specific conditions in the Israeli
@@ -101,5 +105,9 @@ That's the rest of this repository. Belongings live in standardized, interlockin
 industrial containers that double as moving boxes and permanent storage; those tile
 onto pallets; pallets move on jacks. Each move gets cheaper and less punishing than the
 last, because the "boxes" already exist and already hold our lives.
+
+![Interlocked, labelled Euroboxes strapped and staged for a move](figures/crate-stack-for-transport.jpg)
+
+*The system at the end of the argument: belongings already boxed in interlocking industrial units, labelled and staged to move.*
 
 → Start with [Euroboxes](euroboxes.md), the core of the system.

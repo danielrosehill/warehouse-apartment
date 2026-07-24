@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Picking & Sorting Bins
 
 Euroboxes handle storage. A second container family handles **fast, open access** to
@@ -24,10 +28,18 @@ At home, during unboxing: fast access to the stuff you reach for constantly —
 screwdrivers, tape, markers, box cutters, chargers. I also run some lidless **40×30×17
 Euroboxes** in the same role.
 
+![An open-front picking bin held in one hand](figures/picking-bin-handheld.jpg)
+
+*Open-front "louvre" bin — the opening faces you, no lid to lift.*
+
 ## Sorting bins
 
 Same ecosystem, aimed at organizing: many small compartments for separating parts
 and hardware.
+
+![A rack of labelled open bins for hardware](figures/wall-tilt-bins.jpg)
+
+*Labelled bins keep small hardware — screws, anchors, cable clips — sorted and grab-accessible.*
 
 ## Related
 

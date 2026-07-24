@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Interoperability: The Global Standards
 
 This is the chapter I most wish someone had handed me before I started. If you've

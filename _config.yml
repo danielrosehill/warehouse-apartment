@@ -1,0 +1,24 @@
+title: The Warehouse Apartment
+description: >-
+  A field manual for a home storage-and-moving system built on industrial
+  logistics standards — Euroboxes, pallets, picking bins, dollies.
+theme: jekyll-theme-cayman
+lang: en
+
+# Rewrite relative links to other .md files into their built page URLs.
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+
+# Keep build/source-only bits out of the published site.
+exclude:
+  - figures            # repo-root symlink used only by the PDF build
+  - pdf/build.sh
+  - pdf/_pagebreak.md
+  - pdf/metadata.en.yml
+  - tools/
+  - LICENSE
+  - "*.py"
+  - requirements.txt

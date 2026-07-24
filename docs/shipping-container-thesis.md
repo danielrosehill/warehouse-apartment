@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # The Shipping-Container Thesis
 
 The reason this approach feels like more than tidiness: the standards **nest**. Each
@@ -14,6 +18,10 @@ unit is a clean division of the one above it, all the way up to intermodal shipp
 Pack your belongings into Euroboxes and they are already in the base module of a
 system that scales, unbroken, to international freight. Nothing needs re-packing to
 move up a level — the box goes on the pallet, the pallet goes in the container.
+
+![A wall of stacked industrial crates](figures/supplier-yard-wall.jpg)
+
+*The same nesting logic industry runs on, at yard scale — boxes on pallets, pallets to containers.*
 
 ## Why it's practically relevant (not just neat)
 

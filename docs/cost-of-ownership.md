@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Cost of Ownership: IKEA vs. Industrial
 
 Industrial boxes cost more up front. The case for them is **total cost of ownership**
@@ -81,6 +85,10 @@ fast, and low-grade plastics go brittle and chalky within a season or two. In ou
 experience even name-brand consumer plastics (e.g. Keter) simply haven't held up.
 Industrial HDPE Euroboxes are UV-stable: I've stored them **outside, uncovered, without
 hesitation**, and they've held. In this climate that alone can justify the price gap.
+
+![Euroboxes on industrial shelving](figures/euro-crate-on-rack.jpg)
+
+*Warehouse-grade HDPE: UV-stable and built to outlast several cycles of consumer bins.*
 
 ## Bottom line
 

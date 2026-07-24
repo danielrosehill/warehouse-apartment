@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Euroboxes
 
 The backbone of the system.
@@ -14,6 +18,10 @@ boxes built on a standardized **600 × 400 mm** footprint and its clean division
 - Standardized footprint → fits matching shelving and tiles onto a Euro pallet with
   zero wasted space (see [Interoperability](interoperability.md)).
 
+![A column of interlocking Euroboxes](figures/euro-crate-stack-window.jpg)
+
+*Bases nest onto the rim below, so a stack behaves as one rigid column.*
+
 ## The three sizes I use
 
 | Size (cm) | Footprint | Role |
@@ -24,6 +32,10 @@ boxes built on a standardized **600 × 400 mm** footprint and its clean division
 
 Two footprints, three heights. The 40×30 boxes sit two-across on a 60×40, so even
 the small ones stay on-grid.
+
+![Lidded Euroboxes with locking lids and inventory labels](figures/euro-lidded-totes-labeled.jpg)
+
+*Locking lids clip on and stay on; every box carries an inventory label (see [Where's My Box](wheres-my-box.md)).*
 
 ## Why they beat cardboard: double duty
 

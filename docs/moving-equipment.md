@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Moving Equipment
 
 The gear that lets one person move a household without a crew. Cost of all of it is
@@ -12,6 +16,10 @@ a fraction of one professional move.
 | **Ratchet straps** | Turn a stack into one rigid load | Tilt/wheel/maneuver without babysitting the top box |
 | **Pallet jack** (wishlist) | Move a loaded pallet | See [Pallets, Elevators & Biomechanics](pallets-elevators-biomechanics.md) |
 
+![A loaded Eurobox on a hand truck](figures/hand-truck-crate.jpg)
+
+*A basic hand truck moves an interlocked column at once; the interlock keeps it from sliding apart.*
+
 ## Improvised rolling trash cart
 
 Cost-conservative stand-in for a cleaning trolley:
@@ -19,6 +27,10 @@ Cost-conservative stand-in for a cleaning trolley:
 - Big **ACL box (60 × 40 × 41 cm)** on the **platform trolley** → rolling trash can.
 - During unboxing: throw packaging/junk straight in, wheel it, empty it.
 - Wishlist: dedicated **cleaning trolley / bin on wheels** to replace it.
+
+![A three-tier utility cart loaded with bins](figures/utility-cart.jpg)
+
+*An improvised rolling cart for the unboxing phase — junk in, wheel it, empty it.*
 
 ## Why it matters
 

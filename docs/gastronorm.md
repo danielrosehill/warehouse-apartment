@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Gastronorm
 
 Same principle as Euroboxes, different room: an industrial standard that works well
@@ -15,6 +19,10 @@ pans in every professional kitchen). A modular grid: a base size and clean fract
   standardized, stackable, endlessly replaceable.
 - Uses at home: food transport (potlucks), leftovers, bulk storage.
 - Fully normalized in daily use — the "restaurant equipment" framing disappears.
+
+![Kitchenware packed into a Eurobox on a hand truck](figures/cart-loaded-kitchenware.jpg)
+
+*The same standards instinct in the kitchen — pans and kit moved in the same interlocking boxes.*
 
 ## Why it's in this repo
 

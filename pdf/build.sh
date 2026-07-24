@@ -8,8 +8,10 @@
 #   pdf/build.sh en
 #   pdf/build.sh he       # Hebrew (once docs-he/ exists)
 #
-# Requires: pandoc >= 3.x, typst.  Images live in docs/figures/ and are referenced
-# from the markdown as figures/NAME.jpg (so they render on GitHub *and* in the PDF).
+# Requires: pandoc >= 3.x, typst.  Images live in docs/figures/ (JPEG) and are
+# referenced from the markdown as figures/NAME.jpg — which renders on GitHub
+# (doc-relative) and in the PDF: a repo-root symlink `figures -> docs/figures` lets
+# Typst (project root = repo root) resolve the same path. Recreated below if missing.
 set -euo pipefail
 cd "$(dirname "$0")/.."   # repo root
 
@@ -21,6 +23,9 @@ PB="pdf/_pagebreak.md"
 for bin in pandoc typst; do
   command -v "$bin" >/dev/null || { echo "error: '$bin' not found on PATH" >&2; exit 1; }
 done
+
+# Ensure the figures symlink Typst needs to resolve figures/NAME.jpg from the repo root.
+[ -e figures ] || ln -s docs/figures figures
 
 case "$LANG_CODE" in
   en)

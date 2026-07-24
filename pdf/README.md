@@ -19,9 +19,11 @@ breaks), adds a title page and table of contents, and typesets via the Typst eng
 
 ## Images
 
-Put redacted images in [`../docs/figures/`](../docs/figures/) and reference them from
-the markdown as `figures/NAME.jpg`. That path renders on GitHub *and* in the PDF (the
-build adds `docs/` to the resource path). Rebuild to pick up new images.
+Put redacted images (JPEG) in [`../docs/figures/`](../docs/figures/) and reference them
+from the markdown as `figures/NAME.jpg`. That path renders on GitHub (doc-relative)
+*and* in the PDF: a repo-root symlink `figures → docs/figures` (created by `build.sh`)
+lets Typst resolve it. Use JPEG, not WebP — Typst embeds JPEG directly but re-encodes
+WebP as a huge bitmap. Rebuild to pick up new images.
 
 ## Notes / limitations
 

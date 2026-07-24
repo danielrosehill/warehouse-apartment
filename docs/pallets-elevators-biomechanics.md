@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Pallets, Elevators & Biomechanics
 
 Where the home system meets actual logistics. Three things people outside the trade
@@ -10,6 +14,10 @@ rarely know.
 - The pallet is the **move-out unit**: load a column of interlocked boxes, strap,
   move the whole thing with a **pallet jack**.
 
+![A Eurobox column wrapped and strapped on a pallet](figures/crate-on-pallet.jpg)
+
+*The move-out unit: a column of interlocked boxes strapped to a Euro pallet, ready for a jack.*
+
 ## 2. Elevator dimensions dominate move difficulty
 
 - Old building: elevator ~**56 cm** deep — barely room to stand. This single fact,
@@ -18,6 +26,10 @@ rarely know.
 - New building: proper service elevator → the same move was comfortable.
 - **Takeaway:** when choosing an apartment (or booking a move), the elevator matters
   more than most people weight it. Check the depth.
+
+![A tall column of Euroboxes in a lift](figures/elevator-crate-column.jpg)
+
+*Elevator depth decides everything: a proper service lift takes a full column; a 56 cm cab forces the stairs.*
 
 ## 3. Moving effort is non-linear (the palletizing case)
 

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Consumables & Inserts
 
 Next frontier: using Euroboxes as a **home pantry / supply system** for consumables,
@@ -14,6 +18,10 @@ Route bulk household consumables through the same grid of stacking boxes:
 
 Result: defined, visible, restockable homes on-grid. See levels at a glance, buy in
 bulk without the bulk becoming clutter.
+
+![Paper-towel rolls stored in a Eurobox](figures/consumables-paper-rolls.jpg)
+
+*Bulk consumables on-grid: levels visible at a glance, restockable without the bulk becoming clutter.*
 
 ## The key: inserts
 

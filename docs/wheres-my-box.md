@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Where's My Box
 
 The information layer over the physical system: knowing **what's in each box and
@@ -8,6 +12,10 @@ where each box is**, without opening anything.
 - A **home inventory system** — a **substantial fork of [Homebox](https://github.com/hay-kot/homebox)** — with **QR-code labels** on every box.
 - Scan a box's QR → see its contents. Search an item → find its box and location.
 - **Not yet publicly released.** The fork is substantial; release TBD.
+
+![Top-down view of labelled Euroboxes](figures/euro-totes-labeled.jpg)
+
+*Every box gets a QR label; scan it to see the contents, or search an item to find its box.*
 
 ## Why it's essential to the rest
 
