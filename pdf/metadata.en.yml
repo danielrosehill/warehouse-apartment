@@ -1,0 +1,15 @@
+---
+title: "The Warehouse Apartment"
+subtitle: "A field manual for a home storage & moving system built on industrial logistics standards — and the rental-market conditions that forced it"
+author: "Daniel Rosehill"
+lang: "en"
+dir: "ltr"
+papersize: "a4"
+mainfont: "Libertinus Serif"
+monofont: "DejaVu Sans Mono"
+fontsize: "11pt"
+margin:
+  x: "2.2cm"
+  y: "2.4cm"
+toc-title: "Contents"
+---

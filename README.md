@@ -50,14 +50,21 @@ standards is the point — details in [Interoperability](docs/interoperability.m
 
 ---
 
+## Finished PDF
+
+A typeset, printable edition is generated from the markdown via
+[Typst](https://typst.app/): **[`pdf/warehouse-apartment.en.pdf`](pdf/warehouse-apartment.en.pdf)**
+(rebuild with `pdf/build.sh`). This is where the photos will be embedded once redacted.
+
 ## Status
 
 - ✅ **Docs** — written, expanding.
+- ✅ **PDF** — English edition builds from the markdown (`pdf/`).
 - 📷 **Photos** — coming. Before/after move shots need their inventory QR codes
   redacted first (they resolve to a private host). Batch tool in
   [`tools/`](tools/); workflow in [`photos/`](photos/).
 - 🎥 **Video** — in progress; releases once the finished system is in place.
-- 🌐 **Hebrew** — a Hebrew version of [The Why](docs/the-why.md) is planned.
+- 🌐 **Hebrew** — a Hebrew edition (`pdf/warehouse-apartment.he.pdf`) is planned.
 
 ---
 
