@@ -1,0 +1,12 @@
+# Never commit unredacted photos
+photos/raw/
+photos/**/raw/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
