@@ -63,6 +63,21 @@ DEFAULT_EXTS = ".jpg,.jpeg,.png,.webp,.bmp,.tif,.tiff"
 MODELS = Path(__file__).parent / "models" / "wechat"
 
 
+def load_qreader(model_size="l"):
+    """YOLOv8 QR *region* detector — finds the QR surface even when it can't be decoded.
+    This is the high-recall detector for redaction. Returns a detector or None."""
+    try:
+        from qreader import QReader
+    except Exception:
+        return None
+    for ms in (model_size, "s", "n"):
+        try:
+            return QReader(model_size=ms, min_confidence=0.3)
+        except Exception:
+            continue
+    return None
+
+
 def load_wechat():
     """Optional CNN+super-resolution detector. Returns a detector or None."""
     files = [MODELS / f for f in
@@ -82,9 +97,21 @@ def load_oriented_rgb(path: Path):
     return img, np.asarray(img)
 
 
-def detect_polys(rgb: np.ndarray, wechat=None):
+def detect_polys(rgb: np.ndarray, wechat=None, qreader=None):
     """Return a list of (N,2) float polygons for every code found (union of detectors)."""
     polys = []
+    # QReader (YOLO): detects QR *regions* even when undecodable — highest recall.
+    if qreader is not None:
+        try:
+            for det in qreader.detect(image=rgb):
+                quad = det.get("quad_xy")
+                if quad is not None and len(quad):
+                    polys.append(np.asarray(quad, dtype=float).reshape(-1, 2))
+                elif det.get("bbox_xyxy") is not None:
+                    x1, y1, x2, y2 = (float(v) for v in det["bbox_xyxy"])
+                    polys.append(np.array([(x1, y1), (x2, y1), (x2, y2), (x1, y2)], dtype=float))
+        except Exception:
+            pass
     if HAVE_ZBAR:
         try:
             for sym in pyzbar.decode(rgb):
@@ -118,6 +145,27 @@ def detect_polys(rgb: np.ndarray, wechat=None):
                 polys.append(np.asarray(quad).reshape(-1, 2).astype(float))
         except Exception:
             pass
+    return polys
+
+
+def detect_polys_tiled(rgb, wechat, qreader, tiles, overlap=0.25):
+    """Detect on the full image AND on an NxN grid of overlapping tiles, so that
+    tiny codes (small % of the frame) become large enough per-tile to be found."""
+    polys = detect_polys(rgb, wechat, qreader)  # full-frame pass
+    if tiles <= 1:
+        return polys
+    h, w = rgb.shape[:2]
+    step_y, step_x = h / tiles, w / tiles
+    ov_y, ov_x = int(step_y * overlap), int(step_x * overlap)
+    for i in range(tiles):
+        for j in range(tiles):
+            y0 = max(0, int(i * step_y) - ov_y); y1 = min(h, int((i + 1) * step_y) + ov_y)
+            x0 = max(0, int(j * step_x) - ov_x); x1 = min(w, int((j + 1) * step_x) + ov_x)
+            tile = rgb[y0:y1, x0:x1]
+            if tile.size == 0:
+                continue
+            for p in detect_polys(tile, wechat, qreader):
+                polys.append(p + np.array([x0, y0], dtype=float))
     return polys
 
 
@@ -187,6 +235,10 @@ def main():
     ap.add_argument("--to", choices=["same", "webp"], default="webp")
     ap.add_argument("--quality", type=int, default=82)
     ap.add_argument("--pad", type=int, default=24)
+    ap.add_argument("--tiles", type=int, default=1,
+                    help="NxN sliced detection for tiny codes (e.g. 4). 1 = full frame only.")
+    ap.add_argument("--qr-model", default="l", choices=["n", "s", "m", "l"],
+                    help="QReader YOLO model size (default l). Smaller = faster, less recall.")
     ap.add_argument("--color", type=parse_color, default=(0, 0, 0))
     ap.add_argument("--recursive", action="store_true")
     ap.add_argument("--detect-only", action="store_true")
@@ -195,8 +247,10 @@ def main():
 
     if not args.input_dir.is_dir():
         sys.exit(f"Input dir not found: {args.input_dir}")
+    qreader = load_qreader(args.qr_model)
     wechat = load_wechat()
-    detectors = (["zbar"] if HAVE_ZBAR else []) + ["opencv"] + (["wechat"] if wechat else [])
+    detectors = ((["qreader(YOLO)"] if qreader else []) + (["zbar"] if HAVE_ZBAR else [])
+                 + ["opencv"] + (["wechat"] if wechat else []))
     print(f"detectors: {' + '.join(detectors)}\n")
     exts = {e if e.startswith(".") else "." + e
             for e in (x.strip().lower() for x in args.exts.split(",")) if e}
@@ -211,7 +265,7 @@ def main():
         except Exception as e:
             print(f"  ! skip (unreadable): {src.name} ({e})")
             continue
-        polys = detect_polys(rgb, wechat)
+        polys = detect_polys_tiled(rgb, wechat, qreader, args.tiles)
         if polys:
             codes += len(polys)
             print(f"  ✓ {src.name}: {len(polys)} code region(s)")
