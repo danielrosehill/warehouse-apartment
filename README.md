@@ -84,6 +84,15 @@ against the shelving.
 | [**Pallets, Elevators & Biomechanics**](docs/pallets-elevators-biomechanics.md) | Why palletizing is non-linear; why elevator depth dominates a move |
 | [**Where's My Box**](docs/wheres-my-box.md) | The QR-code inventory layer |
 
+### The procedures (SOPs)
+
+| Doc | Covers |
+|-----|--------|
+| [**Standard Operating Procedures**](docs/sops.md) | The move as a two-node supply chain: consolidate, haul, deconsolidate, put away — plus the unit-load hierarchy |
+| [**SOP: The Apartment Move**](docs/sop-apartment-move.md) | The core procedure, phase by phase — survey, consolidate, strike the racking, haul, put away, close out |
+| [**SOP: Split Moves & Storage**](docs/sop-split-and-storage.md) | When part of the load goes to a storage unit, business premises, or a gap between leases |
+| [**SOP: Cold-Start Setup**](docs/sop-system-setup.md) | Getting from nothing to the state the other SOPs assume, in the right order |
+
 ### Money, buying, and the bigger idea
 
 | Doc | Covers |

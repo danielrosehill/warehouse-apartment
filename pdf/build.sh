@@ -45,6 +45,10 @@ case "$LANG_CODE" in
       docs/interoperability.md
       docs/shipping-container-thesis.md
       docs/wheres-my-box.md
+      docs/sops.md
+      docs/sop-apartment-move.md
+      docs/sop-split-and-storage.md
+      docs/sop-system-setup.md
     )
     ;;
   he)
@@ -71,6 +75,7 @@ pandoc \
   --from=gfm+raw_attribute+yaml_metadata_block \
   --file-scope \
   --pdf-engine=typst \
+  --include-in-header=pdf/_header.typ \
   --resource-path=.:docs \
   --toc --toc-depth=2 \
   "${INPUTS[@]}" \

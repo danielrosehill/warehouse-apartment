@@ -30,6 +30,13 @@ WebP as a huge bitmap. Rebuild to pick up new images.
 - Cross-document links (`[Euroboxes](euroboxes.md)`) render as plain text in the PDF —
   they're for the web version.
 - Layout/fonts are set in `metadata.<lang>.yml`.
+- **ASCII diagrams need `_header.typ`.** The SOP chapters draw their diagrams as fenced
+  code blocks (portable: they render on GitHub, on Pages, and in the PDF, unlike
+  Mermaid, which none of the three would render here). Typst breaks a raw block across
+  a page boundary by default, which cut the first diagram in half; the
+  `--include-in-header=pdf/_header.typ` preamble sets `breakable: false` on block raw
+  so a diagram moves whole to the next page. Box-drawing glyphs come from the
+  `monofont` — DejaVu Sans Mono has them; not every mono font does.
 - **`--file-scope` is load-bearing.** Every doc opens with a Jekyll front-matter block
   (`---` / `layout: default` / `---`). Pandoc concatenates inputs before parsing unless
   told otherwise, so only the *first* file's block was consumed as metadata and the
