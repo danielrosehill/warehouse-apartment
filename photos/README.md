@@ -12,6 +12,7 @@ QR codes (which resolve to a private host) are covered, and EXIF/GPS is removed.
 | [`moving-equipment/`](moving-equipment/) | Hand trucks, dollies, carts, labelling tools |
 | [`moving-day/`](moving-day/) | Palletized/strapped loads, car loads, the lift |
 | [`extras/`](extras/) | Odds and ends |
+| [`inbox-eubox-highlights/`](inbox-eubox-highlights/) | Unfiled highlights drop — hand-redacted JPEGs awaiting sorting into the folders above |
 
 These are the full-resolution WebP set. Downscaled JPEG copies of the ones embedded
 inline in the manual live in [`../docs/figures/`](../docs/figures/).
