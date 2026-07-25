@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contents
+permalink: /docs/
 ---
 
 # The Warehouse Apartment — Contents
