@@ -9,15 +9,17 @@ this one.
 
 An **ACL** — *attached container lid*, also written ALC (*attached-lid container*) —
 is a Euro-footprint crate whose lid is moulded onto the box on hinges instead of
-being a separate part. The trade also calls them **distribution totes**, **swan-neck
-crates**, or "**turtle**" boxes (乌龟箱 on Chinese marketplaces, which is worth
-knowing if you ever source from Alibaba).
+being a separate part. The trade also calls them **distribution totes** or
+**swan-neck crates**, and affectionately **"turtles"** — the two lid halves sitting
+up over a tapered shell do look the part. That nickname is not just a joke: they're
+listed as 乌龟箱 ("turtle box") on Chinese marketplaces, which is worth knowing if
+you ever source from Alibaba.
 
-![Render of a 600 × 400 × 415 mm attached-lid container](figures/alc-6441-model.jpg)
+![Three attached-lid containers nested empty with their lids open, beside one closed](figures/acl-nested-and-closed.jpg)
 
-*The 600 × 400 × 415 ACL. Two hinged lid halves meet on the centre line; the walls
-taper slightly so empties nest. Render from
-[storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models).*
+*The two states that make an ACL an ACL. **Left:** empties nested inside one another,
+lids open — the tapered shell is what allows it. **Right:** closed and stackable, the
+two hinged lid halves meeting on the centre line with the hasp tabs at the front edge.*
 
 ## What's different about them
 
@@ -96,6 +98,14 @@ catalogue (YosiBox, the T-series) as a representative sample:
 
 Numbering conventions differ by manufacturer, but the footprint doesn't — check the
 footprint, not the model code.
+
+![True-scale low-poly model of a 600 × 400 × 415 mm attached-lid container](figures/alc-6441-model.jpg)
+
+*The 60 × 40 × 41.5 as a true-scale GLB, from
+[storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) —
+useful for laying out a pallet or a shelf bay before buying anything. The same models
+back the 3D section of the
+[Eurobox calculator](https://danielrosehill.github.io/eurobox-calculator/).*
 
 ## When *not* to reach for one
 
