@@ -69,6 +69,11 @@ sits on it with its full footprint supported and its face flush to the aisle.
 (e.g. 600 mm shelving for 600 × 400 boxes) and your storage wall becomes a single
 coordinated system instead of boxes-perched-on-random-shelves.
 
+Beam length is on the grid too — a **1200 mm bay takes exactly three** 600 × 400
+boxes face-on, and a 1200 × 600 bay is exactly half a Euro pallet footprint. The
+whole subject, including boltless keyhole racking and what to ask a supplier, is in
+[Industrial Shelving](industrial-shelving.md).
+
 ## Adjacent standards worth knowing
 
 - **Gastronorm (GN)** — the kitchen equivalent; see [Gastronorm](gastronorm.md).
@@ -85,3 +90,7 @@ grid). Buy **shelving in the matching depth**. Now your boxes, shelves, and pall
 are one interoperable system — you can stack, shelve, and palletize without a single
 wasted centimeter, and you can do it again in your next apartment, or your next
 country, because the standard travels with you.
+
+## Related
+
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Industrial Shelving](industrial-shelving.md) · [The Shipping-Container Thesis](shipping-container-thesis.md)

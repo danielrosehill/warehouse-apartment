@@ -39,14 +39,27 @@ into this, start there.
 
 - Web: <http://yosibox.com/> · Phone: 03-9153158 · Email: office@yosibox.com
 
+## Shelving is a separate trade
+
+Worth knowing before you plan an order: **box suppliers and shelving suppliers are
+usually different businesses.** Expect two suppliers, two quotes and two deliveries.
+Ours came from **[madafim.co.il](https://madafim.co.il)** — 60 cm-deep boltless units
+with keyhole uprights. Same B2B posture, same approach works: ask plainly, specify in
+their terms. Details in [Industrial Shelving](industrial-shelving.md).
+
 *(I'd like to share a set of redacted move photos with them too — see
 [`../photos/`](../photos/) and [`../tools/`](../tools/).)*
 
 ## Sourcing checklist
 
 1. **Search in trade terms** — "Euro container," "KLT box," "stacking container,"
-   "picking bin," "Gastronorm" — not "storage box."
+   "attached-lid container / ACL," "picking bin," "boltless shelving," "Gastronorm" —
+   not "storage box."
 2. **Target storage/logistics/catering suppliers**, not consumer retailers.
 3. **Buy in their units** — a half-pallet of one size is often the entry price.
 4. **Ask directly** — many B2B suppliers will sell to an individual if you ask.
 5. **Consider import** (Alibaba + LCL) only for large quantities, with patience.
+
+## Related
+
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Industrial Shelving](industrial-shelving.md) · [Cost of Ownership](cost-of-ownership.md)

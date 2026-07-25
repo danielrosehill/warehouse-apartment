@@ -105,4 +105,5 @@ Pay ~2.7× once, or pay less-per-year while also getting a box that moves your h
 survives the sun, and outlives four of its cheaper rivals.
 
 ## Related
-- [Euroboxes](euroboxes.md) · [Sourcing](sourcing.md)
+
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Sourcing](sourcing.md)

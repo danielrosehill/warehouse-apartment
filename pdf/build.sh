@@ -33,8 +33,10 @@ case "$LANG_CODE" in
     DOCS=(
       docs/the-why.md
       docs/euroboxes.md
+      docs/attached-lid-containers.md
       docs/cost-of-ownership.md
       docs/picking-and-sorting-bins.md
+      docs/industrial-shelving.md
       docs/moving-equipment.md
       docs/pallets-elevators-biomechanics.md
       docs/gastronorm.md
@@ -66,7 +68,8 @@ done
 pandoc \
   --metadata-file="$META" \
   -M date="$BUILD_DATE" \
-  --from=gfm+raw_attribute \
+  --from=gfm+raw_attribute+yaml_metadata_block \
+  --file-scope \
   --pdf-engine=typst \
   --resource-path=.:docs \
   --toc --toc-depth=2 \

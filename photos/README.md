@@ -6,7 +6,7 @@ QR codes (which resolve to a private host) are covered, and EXIF/GPS is removed.
 
 | Folder | What's in it |
 |--------|--------------|
-| [`sourcing/`](sourcing/) | The supplier yard; pallet deliveries |
+| [`sourcing/`](sourcing/) | The box supplier's yard, the shelving supplier's warehouse, pallet deliveries |
 | [`storage-system/`](storage-system/) | The storage wall, labelled Euroboxes, shelving, bin contents, consumables |
 | [`picking-bins/`](picking-bins/) | Open-front picking bins and wall hardware bins |
 | [`moving-equipment/`](moving-equipment/) | Hand trucks, dollies, carts, labelling tools |
@@ -15,7 +15,9 @@ QR codes (which resolve to a private host) are covered, and EXIF/GPS is removed.
 | [`inbox-eubox-highlights/`](inbox-eubox-highlights/) | Unfiled highlights drop — hand-redacted JPEGs awaiting sorting into the folders above |
 
 These are the full-resolution WebP set. Downscaled JPEG copies of the ones embedded
-inline in the manual live in [`../docs/figures/`](../docs/figures/).
+inline in the manual live in [`../docs/figures/`](../docs/figures/), along with the
+generated `composite-*.jpg` strips used on the README — see
+[`../tools/make_composites.sh`](../tools/make_composites.sh).
 
 ## Adding new photos
 
@@ -30,3 +32,16 @@ inline in the manual live in [`../docs/figures/`](../docs/figures/).
 5. File the result into the theme folder above with a descriptive name; commit only
    redacted images. The redactor also strips EXIF (incl. GPS) on re-encode. See
    [`../tools/`](../tools/).
+
+## Filing out of the inbox
+
+The filed set is WebP; the inbox is camera JPEG. To move one across:
+
+```bash
+magick photos/inbox-eubox-highlights/IMG<...>.jpg -quality 88 -strip \
+  photos/<theme>/<descriptive-name>.webp
+rm photos/inbox-eubox-highlights/IMG<...>.jpg
+```
+
+Then, if the manual will show it, generate the JPEG display copy into
+[`../docs/figures/`](../docs/figures/) as above.

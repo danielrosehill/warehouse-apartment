@@ -33,6 +33,11 @@ boxes built on a standardized **600 × 400 mm** footprint and its clean division
 Two footprints, three heights. The 40×30 boxes sit two-across on a 60×40, so even
 the small ones stay on-grid.
 
+There is a fourth format worth owning, but for a different job: the **ACL**
+(attached-lid container, 60 × 40 × 41) — same footprint, hinged lid that can't be
+lost, nests when empty. It's the box to *move* in rather than store in. See
+[Attached-Lid Containers](attached-lid-containers.md).
+
 ![Lidded Euroboxes with locking lids and inventory labels](figures/euro-lidded-totes-labeled.jpg)
 
 *Locking lids clip on and stay on; every box carries an inventory label (see [Where's My Box](wheres-my-box.md)).*
@@ -51,6 +56,9 @@ future move cheaper (the "boxes" already exist, already packed).
 
 ## Related
 
+- [← Contents](README.md)
+- [Attached-Lid Containers (ACLs)](attached-lid-containers.md)
+- [Industrial Shelving](industrial-shelving.md)
 - [Consumables & Inserts](consumables-and-inserts.md)
 - [Picking & Sorting Bins](picking-and-sorting-bins.md)
 - [Where's My Box](wheres-my-box.md)

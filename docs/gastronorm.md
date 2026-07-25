@@ -33,3 +33,7 @@ of a standard you're also allowed to buy.
 
 - Kitchen → **Gastronorm**
 - Storage & moving → **Euroboxes & pallets**
+
+## Related
+
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Interoperability](interoperability.md)

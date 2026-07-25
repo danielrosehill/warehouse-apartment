@@ -45,4 +45,4 @@ staying on-grid. Cuttable foam/board covers the rest.
 
 ## Related
 
-- [Euroboxes](euroboxes.md) · [Sourcing](sourcing.md)
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Sourcing](sourcing.md)

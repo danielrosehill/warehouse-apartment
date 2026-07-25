@@ -111,3 +111,7 @@ last, because the "boxes" already exist and already hold our lives.
 *The system at the end of the argument: belongings already boxed in interlocking industrial units, labelled and staged to move.*
 
 → Start with [Euroboxes](euroboxes.md), the core of the system.
+
+## Related
+
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Cost of Ownership](cost-of-ownership.md)

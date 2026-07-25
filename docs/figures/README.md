@@ -18,6 +18,23 @@ small. Generate a display copy with:
 magick photos/<folder>/<name>.webp -resize '1400x1400>' -quality 82 -strip docs/figures/<name>.jpg
 ```
 
+## Composites
+
+`composite-*.jpg` are **generated, not hand-made** — multi-photo strips and grids used
+as the hero and section images on the README. Don't edit them; edit the source list in
+[`../../tools/make_composites.sh`](../../tools/make_composites.sh) and re-run it:
+
+```bash
+tools/make_composites.sh
+```
+
+Tiles are centre-cropped to a common aspect, so **pick sources of matching
+orientation** for a given composite — most of the library is portrait, and cropping a
+tall crate column into a 4:3 tile throws the subject away. Two other things learned
+the hard way: avoid sources whose redaction block dominates the frame (it becomes the
+tile at thumbnail size), and keep the gutter a dark neutral — a white gutter looks
+broken against GitHub's dark theme.
+
 **Only commit redacted images** — originals with inventory QR codes must be run
 through [`../../tools/redact_qr.py`](../../tools/redact_qr.py) first (the codes resolve
 to a private host). See [`../../photos/`](../../photos/) for the workflow.

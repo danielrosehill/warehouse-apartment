@@ -48,4 +48,4 @@ for sharing photos of the system:
 
 ## Related
 
-- [Euroboxes](euroboxes.md) · [`../tools/`](../tools/) · [`../photos/`](../photos/)
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [`../tools/`](../tools/) · [`../photos/`](../photos/)

@@ -25,7 +25,10 @@ a fraction of one professional move.
 Cost-conservative stand-in for a cleaning trolley:
 
 - Big **ACL box (60 × 40 × 41 cm)** on the **platform trolley** → rolling trash can.
+  Bin liner over the rim, hinged lid closed on top of it. See
+  [Attached-Lid Containers](attached-lid-containers.md).
 - During unboxing: throw packaging/junk straight in, wheel it, empty it.
+- Between moves that's all it does — pull the liner and it's a moving box again.
 - Wishlist: dedicated **cleaning trolley / bin on wheels** to replace it.
 
 ![A three-tier utility cart loaded with bins](figures/utility-cart.jpg)
@@ -37,3 +40,7 @@ Cost-conservative stand-in for a cleaning trolley:
 A trolley + dolly + straps cost far less than one full-service move. If you're
 moving repeatedly, the gear pays for itself the first time and is free every time
 after.
+
+## Related
+
+- [← Contents](README.md) · [Attached-Lid Containers](attached-lid-containers.md) · [Pallets, Elevators & Biomechanics](pallets-elevators-biomechanics.md)

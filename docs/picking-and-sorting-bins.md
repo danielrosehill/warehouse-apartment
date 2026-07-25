@@ -41,6 +41,13 @@ and hardware.
 
 *Labelled bins keep small hardware — screws, anchors, cable clips — sorted and grab-accessible.*
 
+## Where to hang them
+
+Picking bins have a hooked lip moulded into the back, made to hang on a **louvred
+panel**. The best surface for that panel in a small flat is the otherwise-blank
+**side face of a shelving unit** — a full-height vertical grid you already own. See
+[Industrial Shelving](industrial-shelving.md#the-side-face-is-storage-too).
+
 ## Related
 
-- [Euroboxes](euroboxes.md) · [Sourcing](sourcing.md)
+- [← Contents](README.md) · [Euroboxes](euroboxes.md) · [Industrial Shelving](industrial-shelving.md) · [Sourcing](sourcing.md)

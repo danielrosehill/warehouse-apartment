@@ -30,3 +30,10 @@ WebP as a huge bitmap. Rebuild to pick up new images.
 - Cross-document links (`[Euroboxes](euroboxes.md)`) render as plain text in the PDF —
   they're for the web version.
 - Layout/fonts are set in `metadata.<lang>.yml`.
+- **`--file-scope` is load-bearing.** Every doc opens with a Jekyll front-matter block
+  (`---` / `layout: default` / `---`). Pandoc concatenates inputs before parsing unless
+  told otherwise, so only the *first* file's block was consumed as metadata and the
+  other thirteen were parsed as setext headings — "layout: default" appeared as a
+  chapter title in the TOC before each one. `--file-scope` (plus
+  `+yaml_metadata_block` on the reader) parses each file separately and strips them
+  all. Remove either flag and the front matter comes back.
