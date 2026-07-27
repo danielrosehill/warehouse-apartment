@@ -11,7 +11,7 @@ argument, [Euroboxes](euroboxes.md) if you want the system, or
 [Interoperability](interoperability.md) if you want the map of the whole ecosystem.
 
 Back to the [project overview](../README.md) · [PDF edition](../pdf/warehouse-apartment.en.pdf) ·
-[Eurobox calculator](https://danielrosehill.github.io/eurobox-calculator/)
+[Eurobox calculator](https://danielrosehill.github.io/storage-container-calculator/)
 
 ## Start here
 

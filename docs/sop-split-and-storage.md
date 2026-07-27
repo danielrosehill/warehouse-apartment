@@ -53,7 +53,7 @@ well as a mark on the label:
 
 The sort test that works: **would you pay a year's storage rent for this box?** The
 rent is knowable — price per m³ per month × the box's cube, and the
-[calculator](https://danielrosehill.github.io/eurobox-calculator/) gives you the cube.
+[calculator](https://danielrosehill.github.io/storage-container-calculator/) gives you the cube.
 For most boxes the honest answer is no, and the tag is OUT.
 
 ## Rules for the dormant set

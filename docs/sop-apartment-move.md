@@ -82,7 +82,7 @@ You are pricing a lane, not just booking a van.
 **Briefing a removals firm is different when you're standardized.** Movers price
 uncertainty — volume they can't see and handling they can't predict. You can remove
 both: give them a count of identical 600 × 400 units, a total cube, and a pallet-load
-figure. The [Eurobox calculator](https://danielrosehill.github.io/eurobox-calculator/)
+figure. The [Eurobox calculator](https://danielrosehill.github.io/storage-container-calculator/)
 produces exactly this as an A4 PDF; hand it over with the quote request. Ask
 specifically whether they carry a **tail-lift** and whether their crew will move
 **your** unit loads rather than repacking into their own cartons.

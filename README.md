@@ -13,7 +13,7 @@ permalink: /
 Euro pallets, boltless racking, picking bins, dollies — instead of consumer storage
 products.
 
-[**Read the manual**](#the-manual) · [**Eurobox calculator**](https://danielrosehill.github.io/eurobox-calculator/) · [**PDF edition**](pdf/warehouse-apartment.en.pdf) · [**Photos**](photos/)
+[**Read the manual**](#the-manual) · [**Eurobox calculator**](https://danielrosehill.github.io/storage-container-calculator/) · [**PDF edition**](pdf/warehouse-apartment.en.pdf) · [**Photos**](photos/)
 
 </div>
 
@@ -107,12 +107,12 @@ against the shelving.
 
 ### 📐 Eurobox Logistics Calculator
 
-**<https://danielrosehill.github.io/eurobox-calculator/>**
+**<https://danielrosehill.github.io/storage-container-calculator/>**
 
 A single-page calculator that turns a pile of Euroboxes into logistics figures —
 useful before you buy them, and again before you book the van.
 
-[![Eurobox Logistics Calculator — box size tiles grouped by footprint](https://raw.githubusercontent.com/danielrosehill/eurobox-calculator/HEAD/screenshots/app.png)](https://danielrosehill.github.io/eurobox-calculator/)
+[![Eurobox Logistics Calculator — box size tiles grouped by footprint](https://raw.githubusercontent.com/danielrosehill/storage-container-calculator/HEAD/screenshots/app.png)](https://danielrosehill.github.io/storage-container-calculator/)
 
 - **Total volume** in m³ and litres, from external dimensions
 - **Euro pallet loads** (EUR-1 or EUR-6 half pallet) at a chosen max stack height,
@@ -122,13 +122,13 @@ useful before you buy them, and again before you book the van.
 - **A4 PDF report** to hand to a removals firm
 
 No build step, no dependencies.
-Source: [`danielrosehill/eurobox-calculator`](https://github.com/danielrosehill/eurobox-calculator).
+Source: [`danielrosehill/storage-container-calculator`](https://github.com/danielrosehill/storage-container-calculator).
 
 ### 🧊 Companion repos
 
 | Repo | What it is |
 |------|-----------|
-| [eurobox-calculator](https://github.com/danielrosehill/eurobox-calculator) | The calculator above |
+| [eurobox-calculator](https://github.com/danielrosehill/storage-container-calculator) | The calculator above |
 | [storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) | True-scale GLB models of Euroboxes, ACLs and picking bins |
 
 ### 🛠 In this repo

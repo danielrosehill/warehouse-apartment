@@ -105,7 +105,7 @@ footprint, not the model code.
 [storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) —
 useful for laying out a pallet or a shelf bay before buying anything. The same models
 back the 3D section of the
-[Eurobox calculator](https://danielrosehill.github.io/eurobox-calculator/).*
+[Eurobox calculator](https://danielrosehill.github.io/storage-container-calculator/).*
 
 ## When *not* to reach for one
 
