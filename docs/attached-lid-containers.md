@@ -102,7 +102,7 @@ footprint, not the model code.
 ![True-scale low-poly model of a 600 × 400 × 415 mm attached-lid container](figures/alc-6441-model.jpg)
 
 *The 60 × 40 × 41.5 as a true-scale GLB, from
-[storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) —
+[Modular-Storage-3D-Models](https://github.com/danielrosehill/Modular-Storage-3D-Models) —
 useful for laying out a pallet or a shelf bay before buying anything. The same models
 back the 3D section of the
 [Eurobox calculator](https://danielrosehill.github.io/storage-container-calculator/).*

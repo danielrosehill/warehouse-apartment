@@ -43,7 +43,7 @@ are captioned as such in the docs:
 | Figure | What it is |
 |--------|-----------|
 | `acl-nested-and-closed.jpg` | Catalogue-style product shot of attached-lid containers, nested and closed — used because the nesting behaviour is the whole point and our own ACL has never been photographed that way |
-| `alc-6441-model.jpg` | Render of our own GLB from [storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) |
+| `alc-6441-model.jpg` | Render of our own GLB from [Modular-Storage-3D-Models](https://github.com/danielrosehill/Modular-Storage-3D-Models) |
 | `composite-*.jpg` | Generated — see above |
 
 Anything sourced from outside needs its redistribution rights checked before it lands

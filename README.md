@@ -129,7 +129,7 @@ Source: [`danielrosehill/storage-container-calculator`](https://github.com/danie
 | Repo | What it is |
 |------|-----------|
 | [eurobox-calculator](https://github.com/danielrosehill/storage-container-calculator) | The calculator above |
-| [storage-box-3d-models](https://github.com/danielrosehill/storage-box-3d-models) | True-scale GLB models of Euroboxes, ACLs and picking bins |
+| [Modular-Storage-3D-Models](https://github.com/danielrosehill/Modular-Storage-3D-Models) | True-scale GLB models of Euroboxes, ACLs and picking bins |
 
 ### 🛠 In this repo
 
